@@ -14,7 +14,8 @@ namespace ECommerce.Api.Products.Tests
             var options = new DbContextOptionsBuilder<ProductsDbContext>().
                 UseInMemoryDatabase(nameof(GetProductsReturnsAllProducts)).Options;
             var dbContext = new ProductsDbContext(options);
-            CreateProducts(dbContext);
+            if (dbContext.Products.Any() == null)
+                CreateProducts(dbContext);
 
             var productProfile = new ProductProfile();
             var configuration = new MapperConfiguration(cfg => cfg.AddProfile(productProfile));
@@ -33,7 +34,8 @@ namespace ECommerce.Api.Products.Tests
             var options = new DbContextOptionsBuilder<ProductsDbContext>().
                 UseInMemoryDatabase(nameof(GetProductsReturnsAllProducts)).Options;
             var dbContext = new ProductsDbContext(options);
-            CreateProducts(dbContext);
+            if (dbContext.Products.Any() == null)
+                CreateProducts(dbContext);
 
             var productProfile = new ProductProfile();
             var configuration = new MapperConfiguration(cfg => cfg.AddProfile(productProfile));
@@ -53,7 +55,8 @@ namespace ECommerce.Api.Products.Tests
             var options = new DbContextOptionsBuilder<ProductsDbContext>().
                 UseInMemoryDatabase(nameof(GetProductsReturnsAllProducts)).Options;
             var dbContext = new ProductsDbContext(options);
-            CreateProducts(dbContext);
+            if (dbContext.Products.Any() == null)
+                CreateProducts(dbContext);
 
             var productProfile = new ProductProfile();
             var configuration = new MapperConfiguration(cfg => cfg.AddProfile(productProfile));
